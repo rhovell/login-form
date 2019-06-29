@@ -55,23 +55,36 @@ header {
   max-width: 100%;
   padding: 1em;
 }
-.login-form {
-  width: 60%;
-  max-width: 600px;
+.login-form.container {
+  width: 90%;
+  max-width: 90vw;
+  height: 350px;
+  max-height: 60vh;
+  margin-left: auto;
+  margin-right: auto;
   border: 5px solid black;
   background-color: #404040;
-  box-shadow: 5px 5px 5px #ccc;
-  margin: auto;
-  padding: 2em;
-  height: 420px;
+}
+.animation-container {
+  width: 100%;
+  height: 80%;
+  position: relative;
+  top: 0;
+  left: 0;
 }
 /* face */
 .face {
   border-radius: 360px;
   border: 5px solid black;
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   margin: auto;
+  position: relative;
+  top: 5%;
+  max-width: 250px;
+  max-height: 250px;
+  min-width: 250px;
+  min-height: 250px;
 }
 .face.happy {
   background-color: rgb(250, 247, 0);
@@ -93,9 +106,15 @@ header {
   /* position: absolute; */
 
 }
-@keyframes bounce {
+/* @keyframes bounce {
   from {margin-top:  auto;}
   to {margin-top:  50px;}
+} */
+.eye-container {
+    position: relative;
+    width: 90%;
+    margin: 0;
+    top: 26%;
 }
 .eye {
   border-radius: 360px;
@@ -103,20 +122,34 @@ header {
   width: 50px;
   height: 50px;
   background-color: black;
-  position: absolute;
+  position: relative;
   z-index: 100;
-  top: 34%;
+  top: 24%;
+  display: inline-block;
 }
 .eye.left {
-  left: 41%;
+  left: 0;
   /* top: 34%; */
 }
 .eye.right {
-  right: 41%;
+  right: -10%;
 }
 .eye.wink {
   top: 40%;
   height: 10px;
+  /* animation-name: blink; */
+  animation-iteration-count: 3;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-timing-function: ease-in-out;
+}
+@keyframes blink {
+  from {
+    height: 10px;
+  }
+  to {
+    height: 50px;
+  }
 }
 .eye.wink .inner-eye {
   display: none;
@@ -139,15 +172,33 @@ header {
 }
 .mouth {
   width: 120px;
+  border: 10px solid black;
+  position: relative;
+  left: 25%;
+  z-index: 100;
+  background-color: black;
+}
+.mouth.happy {
   border-bottom-left-radius: 310px;
   border-bottom-right-radius: 310px;
-  border: 10px solid black;
   height: 60px;
-  position: absolute;
-  z-index: 100;
-  left: 43%;
+  top: 40%;
+}
+.mouth.sad {
+  height: 20px;
+  border-top-left-radius: 310px;
+  border-top-right-radius: 310px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  top: 46%;
+  transition: border-radius 1.5s ease-in;
+  transition: height 0.3s ease-in;
+}
+.mouth.sad .inner-mouth {
+  display: none;
+}
+.mouth.ecstatic {
   top: 50%;
-  background-color: black;
 }
 .inner-mouth {
   width: 61px;
@@ -160,10 +211,13 @@ header {
   border-radius: 300px;
   left: 20%;
 }
+.form-container {
+  width: 100%;
+}
 form {
   padding: 1em;
   display: inline-flex;
-  width: 100%;
+  width: calc(100% - 2em);
 }
 .column {
   width: 50%;
